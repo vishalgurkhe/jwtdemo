@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import com.vishal.jwtdemo.dto.LoginRequestDto;
 import com.vishal.jwtdemo.dto.LoginResponseDto;
+import com.vishal.jwtdemo.models.User;
 
 import lombok.RequiredArgsConstructor;
 
@@ -27,6 +28,7 @@ public class AuthService {
 						new UsernamePasswordAuthenticationToken(loginRequest.getUserName(), loginRequest.getPassword())
 						);
 				
+		User user=(User)authentication.getPrincipal();
 		return null;
 	}
 	
