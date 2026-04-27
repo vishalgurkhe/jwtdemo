@@ -1,0 +1,23 @@
+# Build
+target/
+
+# Logs
+*.log
+
+# Java
+*.class
+*.jar
+
+# IDE (STS / IntelliJ / Eclipse)
+.idea/
+.metadata/
+.sonarlint/
+.settings/
+.project
+.classpath
+
+# OS
+.DS_Store
+
+# Zip files
+*.zip
