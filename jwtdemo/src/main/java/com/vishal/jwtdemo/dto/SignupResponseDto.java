@@ -7,17 +7,16 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-@Data
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
 @Getter
 @Setter
-public class LoginRequestDto {
+@Data
+@ToString
+public class SignupResponseDto {
 	
-	private String userName;;
+	private Long id;
 	
-	private String password;
-	
+	private String userName;
 
 }

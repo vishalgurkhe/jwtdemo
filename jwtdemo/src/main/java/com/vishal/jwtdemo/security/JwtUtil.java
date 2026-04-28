@@ -16,7 +16,7 @@ import io.jsonwebtoken.security.Keys;
 public class JwtUtil {
 	
 	//afterwords take this value form app.properties file, now setting here
-	private final String secretKey="MySecretKey";
+	private final String secretKey="my-super-secret-key-which-is-at-least-32-characters";
 	
 //	converts your plain string secret (secretKey) into a secure SecretKey object that can be used for HMAC-based JWT signing (like HS256, HS512, etc.)
 	private SecretKey getSecretKey() {
@@ -24,14 +24,17 @@ public class JwtUtil {
 	}
 	
 	//generating token
-	private String generateAccessToken(User user) {
+	public String generateAccessToken(User user) {
 		
-		return Jwts.builder()
+		String token=Jwts.builder()
 					.setSubject(user.getUsername())
 					.claim("userId", user.getId().toString())
 					.setIssuedAt(new Date())
 					.setExpiration(new Date(System.currentTimeMillis()+1000*60*10))
+					.signWith(getSecretKey())
 					.compact();
+		
+		return token;
 	}
 	
 

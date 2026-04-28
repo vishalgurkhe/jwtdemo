@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.vishal.jwtdemo.dto.LoginRequestDto;
 import com.vishal.jwtdemo.dto.LoginResponseDto;
+import com.vishal.jwtdemo.dto.SignupResponseDto;
 import com.vishal.jwtdemo.security.AuthService;
 
 import lombok.RequiredArgsConstructor;
@@ -25,6 +26,14 @@ public class AuthController {
 		
 		
 		return ResponseEntity.ok(authService.login(loginRequest));
+		
+	}
+	
+	@PostMapping("/signup")
+	public ResponseEntity<SignupResponseDto> signup(@RequestBody LoginRequestDto loginRequest){
+		
+		
+		return ResponseEntity.ok(authService.signup(loginRequest));
 		
 	}
 
